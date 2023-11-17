@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@317&display=swap');
+
+body {
+    margin: 0 auto;
+    font-family: "Dosis", sans-serif;
+}
+
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 2px groove black;
+    width: 50%;
+    padding: 5px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#buttons {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.challengeButton {
+    border: none;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.challengeButton:hover :not(filter), .navItem:hover :not(filter) {
+    border: 2px groove black ;
+}
+
+
+#buttons:has(:hover) > .challengeButton:not(:hover), .topNav:has(:hover) > .navItem:not(:hover) {
+    transition: filter 0.3s;
+    filter:opacity(0.5);
+    
+}
+
+/* Challenge 1 */
+
+.navDisabled {
+    height: 0;
+    border: 0;
+    transition: 0.3s ease;
+    opacity: 0;
+}
+.navDisabled .navItem {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+
+.topNav, .navItems {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 2px groove black;
+    
+}
+
+.navItems {
+    border: none;
+}
+
+.navItem {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px groove black;
+    text-decoration: none;
+    color: black;
+}
+
+.openNavHolder {
+    display: flex;
+    justify-content: center;
+}
+.openNav {
+    margin: 0 auto;
+    padding: 5px;
+    transition: 2s;
+    transform: rotateZ(180deg);
+}
+
+@media screen and (max-width: 400px) {
+ .topNav, .navItems{
+    flex-direction: column;
+ }   
+}
