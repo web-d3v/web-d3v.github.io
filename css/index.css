@@ -3,6 +3,7 @@
 body {
     margin: 0 auto;
     font-family: "Dosis", sans-serif;
+    height: 100vh;
 }
 
 h1 {
@@ -24,7 +25,8 @@ p {
     justify-content: center;
 }
 
-.challengeButton {
+.challengeButton,
+button {
     border: none;
     padding: 15px;
     margin: 5px;
@@ -32,21 +34,27 @@ p {
     font-family: 'Dosis', sans-serif;
     font-weight: bold;
     font-size: 1em;
+    cursor:pointer;
 }
 
-.challengeButton:hover :not(filter), .navItem:hover :not(filter) {
-    border: 2px groove black ;
+.challengeButton:hover :not(filter),
+.navItem:hover :not(filter) {
+    border: 2px groove black;
+    cursor:pointer;
 }
 
 
-#buttons:has(:hover) > .challengeButton:not(:hover), .topNav:has(:hover) > .navItem:not(:hover) {
-    transition: filter 0.3s;
-    filter:opacity(0.5);
-    
+#buttons:has(:hover)>.challengeButton:not(:hover),
+#topNav:has(:hover) #navItems:has(:hover)>.navItem:not(:hover),
+#columns:has(:hover)>.column:not(:hover) {
+    transition: filter 0.8s;
+    filter: opacity(0.2);
+
 }
 
 /* Challenge 1 */
 
+/*
 .navDisabled {
     height: 0;
     border: 0;
@@ -57,35 +65,45 @@ p {
     margin: 0;
     padding: 0;
     border: 0;
+    
+}
+*/
 
+#topNav {
+    height: 0;
 }
 
-.topNav, .navItems {
+#topNav,
+#navItems {
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border-bottom: 2px groove black;
-    
 }
 
-.navItems {
+#navItems {
     border: none;
 }
 
 .navItem {
+    background-color: #f0f0f0;
     margin: 5px;
     padding: 5px;
+    padding: 5px 15px 5px 15px;
     border-radius: 5px;
-    border: 2px groove black;
     text-decoration: none;
     color: black;
+    font-weight: bold;
+    font-size: 1em;
+    transition: filter 0.8s;
 }
 
 .openNavHolder {
     display: flex;
     justify-content: center;
 }
+
 .openNav {
     margin: 0 auto;
     padding: 5px;
@@ -93,8 +111,35 @@ p {
     transform: rotateZ(180deg);
 }
 
-@media screen and (max-width: 400px) {
- .topNav, .navItems{
+@media screen and (max-width: 500px) {
+
+    #topNav,
+    #navItems {
+        flex-direction: column;
+    }
+
+    .navItem {
+        text-align: center;
+        border: 2px groove rgb(125, 125, 125);
+    }
+
+    #columns {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+/* Challenge 1 */
+
+#columns {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    width: 33.3%;
+    display: flex;
     flex-direction: column;
- }   
+    flex-wrap: wrap;
 }

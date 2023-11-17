@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Challenges</title>
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/index.js"></script>
 </head>
 <body>
     <h1>Challenges</h1>
     <div id="buttons">
-        <button class="challengeButton">Challenge 1</button>
-        <button class="challengeButton">Challenge 2</button>
-        <button class="challengeButton">Challenge 3</button>
+        <button location="challenge1" class="challengeButton">Challenge 1</button>
+        <button location="challenge2" class="challengeButton">Challenge 2</button>
+        <button location="challenge3" class="challengeButton">Challenge 3</button>
     </div>
+    <script>
+        const buttons = document.querySelectorAll("button");
+        for (let i = 0; i < buttons.length; i++ ) {
+            const button = buttons[i];
+            button.addEventListener("click", () => {
+                console.log(button.attributes.getNamedItem("location").value);
+                window.location = `/pages/${button.attributes.getNamedItem("location").value}.html`;
+            })
+        }
+    </script>
 </body>
 </html>
